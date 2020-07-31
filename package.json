@@ -1,0 +1,54 @@
+{
+  "name": "spacex-trivia",
+  "version": "1.0.0",
+  "description": "Simple app to help you learn SpaceX history",
+  "main": "./src/index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "build": "webpack --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikenjoku/spacex-trivia.git"
+  },
+  "keywords": [
+    "React",
+    "React",
+    "Webpack",
+    "Redux-Saga"
+  ],
+  "author": "Ikechukwu Njoku",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ikenjoku/spacex-trivia/issues"
+  },
+  "homepage": "https://github.com/ikenjoku/spacex-trivia#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-styled-components": "^1.11.1",
+    "babel-runtime": "^6.26.0",
+    "css-loader": "^4.2.0",
+    "eslint": "^7.5.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-react": "^7.20.5",
+    "html-loader": "^1.1.0",
+    "style-loader": "^1.2.1",
+    "styled-components": "^5.1.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-hot-middleware": "^2.25.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5"
+  }
+}
