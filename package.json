@@ -38,6 +38,7 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.20.5",
     "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
     "style-loader": "^1.2.1",
     "styled-components": "^5.1.1",
     "webpack": "^4.44.1",
@@ -49,6 +50,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
     "redux": "^4.0.5"
   }
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
+import App from './App'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -25,19 +27,11 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-function App () {
-  return (
-    <div>
-      <p>Hooray!!!!!. IT WORKED!</p>
-    </div>
-  )
-}
-
 ReactDOM.render(
-      <>
+      <Router>
         <GlobalStyle />
         <App />
-      </>,
+      </Router>,
   document.getElementById('root')
 )
 
