@@ -5,6 +5,10 @@ import { createGlobalStyle } from 'styled-components'
 import App from './App'
 
 const GlobalStyle = createGlobalStyle`
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
   * {
     padding: 0;
     margin: 0;
