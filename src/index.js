@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 import App from './App'
+import store from './redux/store'
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
@@ -32,10 +34,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 ReactDOM.render(
+    <Provider store={store}>
       <Router>
         <GlobalStyle />
         <App />
-      </Router>,
+      </Router>
+    </Provider>,
   document.getElementById('root')
 )
 
