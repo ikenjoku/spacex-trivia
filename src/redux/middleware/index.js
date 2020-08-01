@@ -8,8 +8,8 @@ import {
 
 function* rootSaga() {
   yield all([
-    watchFetchHistory,
-    watchFetchLaunches
+    watchFetchHistory(),
+    watchFetchLaunches()
   ])
 }
 

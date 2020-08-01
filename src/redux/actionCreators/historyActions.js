@@ -8,7 +8,7 @@ export const fetchHistory = () => ({
   type: FETCH_HISTORY
 });
 
-export const fetchHistorySuccess = ({history}) => ({
+export const fetchHistorySuccess = (history) => ({
   type: FETCH_HISTORY_SUCCESS,
   history
 });
