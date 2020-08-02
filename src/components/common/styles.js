@@ -16,14 +16,14 @@ export const Circle = styled.div`
   width: 35px;
 
   &:nth-child(1) {
-    animation-delay: calc(150ms * 1);
+    animation-delay: calc(15ms * 1);
     margin-left: 0;
   }
   &:nth-child(2) {
-    animation-delay: calc(150ms * 2);
+    animation-delay: calc(15ms * 2);
   }
   &:nth-child(3) {
-    animation-delay: calc(150ms * 3);
+    animation-delay: calc(15ms * 3);
   }
 
   @keyframes circles-to-diamond {

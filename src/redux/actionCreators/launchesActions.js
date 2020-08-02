@@ -8,7 +8,7 @@ export const fetchLaunches = () => ({
   type: FETCH_LAUNCHES
 });
 
-export const fetchLaunchesSuccess = ({launches}) => ({
+export const fetchLaunchesSuccess = (launches) => ({
   type: FETCH_LAUNCHES_SUCCESS,
   launches
 });

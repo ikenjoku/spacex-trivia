@@ -18,7 +18,9 @@ const History = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchHistory())
+    if(!listHistory.length){
+      dispatch(fetchHistory())
+    }
   }, [])
 
   return (

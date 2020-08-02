@@ -18,7 +18,7 @@ const launches = (state=initialState, action) => {
       }
     case FETCH_LAUNCHES_SUCCESS:
       return {
-        ...state, loading: false, history: action.launches
+        ...state, loading: false, launches: action.launches
       }
     case FETCH_LAUNCHES_FAILURE:
       return {

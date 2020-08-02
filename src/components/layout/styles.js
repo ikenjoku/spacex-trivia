@@ -44,6 +44,7 @@ export const LogoText = styled.h1`
   margin: 0;
   padding: 0;
   display: inline;
+  cursor: pointer;
 `
 
 export const ExtraActions = styled.div`
