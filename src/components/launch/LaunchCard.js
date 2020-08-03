@@ -49,7 +49,7 @@ export default function LaunchCard({ launchInfo: {
     history.push({
       ...location,
       pathname: `/launches/${launchId}`,
-      state: { launchId }
+      launchId
     })
   }
 

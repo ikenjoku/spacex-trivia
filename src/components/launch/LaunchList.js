@@ -5,6 +5,7 @@ import LaunchCard  from './LaunchCard'
 import LaunchDetail from './LaunchDetail'
 import RocketOrbitFilter from './RocketOrbitFilter'
 import { Modal } from '../common'
+import { getIdParam } from '../../utils'
 
 const Filters = styled.div`
   @media (min-width: 500px) {
@@ -43,6 +44,7 @@ export default function LaunchList({ launchList }) {
     })
   }
 
+  const launchIdParam = location.launchId || getIdParam(location.pathname)
 
   const filterLaunches = launches => {
     if (!filterString || !launches.length) {
@@ -102,7 +104,7 @@ export default function LaunchList({ launchList }) {
       { showDetailModal &&
         <Modal>
             <LaunchDetail
-              launchId={location.state.launchId}
+              launchId={launchIdParam}
               closeModal={redirectToLaunches}
             />
         </Modal> }

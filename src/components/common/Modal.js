@@ -3,9 +3,13 @@ import { createPortal } from "react-dom"
 import styled from 'styled-components'
 
 const ModalContainer = styled.div`
+  @media (max-width: 600px) {
+    width: 100%;
+  }
   background-color: white;
-  max-width: 500px;
-  padding: 15px;
+  width: 600px;
+  height: 80vh;
+  padding: 1em;
   border-radius: 5px;
   text-align: center;
 `
