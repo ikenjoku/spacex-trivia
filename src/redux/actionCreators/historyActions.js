@@ -6,14 +6,14 @@ import {
 
 export const fetchHistory = () => ({
   type: FETCH_HISTORY
-});
+})
 
 export const fetchHistorySuccess = (history) => ({
   type: FETCH_HISTORY_SUCCESS,
   history
-});
+})
 
 export const fetchHistoryFailure = (error) => ({
   type: FETCH_HISTORY_FAILURE,
   error
-});
+})
