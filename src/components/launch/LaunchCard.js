@@ -52,6 +52,8 @@ export default function LaunchCard({ launchInfo: {
                 <p>Payload Type: {payload.payload_type}</p>
                 <p>Manufacturer: {payload.manufacturer}</p>
                 <p>Nationality: {payload.nationality}</p>
+                <p>Orbit: {payload.orbit}</p>
+                <p>Regime: {payload.orbit_params.regime}</p>
               </PayloadContainer>))}
           </Payloads>
         )}
