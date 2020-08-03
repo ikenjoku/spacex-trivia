@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchRockets } from '../../redux/actionCreators/rocketActions'
-import LaunchCard  from './LaunchCard'
-
 import styled from 'styled-components'
+import { useRouteMatch, useHistory } from 'react-router-dom'
+import LaunchCard  from './LaunchCard'
+import LaunchDetail from './LaunchDetail'
+import RocketOrbitFilter from './RocketOrbitFilter'
+import { Modal } from '../common'
+import { getIdParam } from '../../utils'
 
 const Filters = styled.div`
   @media (min-width: 500px) {
@@ -29,64 +31,20 @@ const FilterInput = styled.input`
   font-size: 14px;
 `
 
-const OrbitFilter = styled.select`
-  @media (max-width: 500px) {
-    margin-top: 1.5em;
-  }
-  padding: .65em;
-  outline: auto;
-  border-radius: 5px;
-  max-width: 250px;
-  font-style: italic;
-  font-weight: 600;
-  font-family: monospace;
-  font-size: 14px;
-`
-
-const RocketFilter = ({ handleRockerFilter }) => {
-  const rocketsState = useSelector(state => state.rockets)
-  const { loading, rockets, error } = rocketsState
-  const dispatch = useDispatch()
-
-  const [possibleOrbits, setPossibleOrbits] = useState([])
-  const [selectedOrbit, setSelectedOrbit] = useState('')
-
-  useEffect(() => {
-    if (!rockets.length){
-      dispatch(fetchRockets())
-    }
-  }, [])
-
-  useEffect(() => {
-    if (rockets.length){
-      let orbits = {}
-      for (let rocket of rockets){
-        for (let payload of rocket.payload_weights) {
-          orbits = { ...orbits, ...{ [payload.id]: payload.name } }
-        }
-      }
-      const rocketOrbits = Object.keys(orbits).map(orbitId => ({id:orbitId, name:orbits[orbitId]}))
-      setPossibleOrbits(rocketOrbits)
-
-    }
-  }, [rockets])
-
-  return (
-    <OrbitFilter
-      name="rocket-filter"
-      disabled={!possibleOrbits.length}
-      onChange={e => handleRockerFilter(e.target.value)}
-    >
-      <option value="">Select a rocket</option>
-      { possibleOrbits.map(({ id, name }) =>
-        <option key={id} value={id}>{name}</option>) }
-    </OrbitFilter>
-  )
-}
-
 export default function LaunchList({ launchList }) {
   const [filterString, setFilterString] = useState('')
   const [showingLaunches, setShowingLaunches] = useState([])
+  const showDetailModal = useRouteMatch('/launches/*')
+  const history = useHistory()
+  const { location } = history
+  const redirectToLaunches = () => {
+    history.push({
+      ...location,
+      pathname: '/launches'
+    })
+  }
+
+  const launchIdParam = location.launchId || getIdParam(location.pathname)
 
   const filterLaunches = launches => {
     if (!filterString || !launches.length) {
@@ -132,7 +90,7 @@ export default function LaunchList({ launchList }) {
           onChange={e => setFilterString(e.target.value)}
           value={filterString}
         />
-      <RocketFilter
+      <RocketOrbitFilter
         handleRockerFilter={handleRockerFilter}
       />
       </Filters>
@@ -143,6 +101,13 @@ export default function LaunchList({ launchList }) {
             launchInfo={launchInfo}
           />
       )}
+      { showDetailModal &&
+        <Modal>
+            <LaunchDetail
+              launchId={launchIdParam}
+              closeModal={redirectToLaunches}
+            />
+        </Modal> }
     </>
   )
 }
