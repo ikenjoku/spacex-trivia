@@ -3,7 +3,8 @@ import {
   watchFetchHistory
 } from './historySaga'
 import {
-  watchFetchLaunches
+  watchFetchLaunches,
+  watchFetchLaunch
 } from './launchSaga'
 import {
   watchFetchRockets
@@ -11,9 +12,10 @@ import {
 
 function* rootSaga() {
   yield all([
-    watchFetchHistory(),
     watchFetchLaunches(),
-    watchFetchRockets()
+    watchFetchHistory(),
+    watchFetchRockets(),
+    watchFetchLaunch()
   ])
 }
 

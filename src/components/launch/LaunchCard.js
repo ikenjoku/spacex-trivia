@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 const LaunchCardContainer = styled.div`
@@ -17,12 +18,15 @@ const TitleContainer = styled.div`
   align-items: center;
   }
 
+  cursor: pointer;
+
   p {
     padding-bottom: .5em;
   }
 `
 
 const Details = styled.div`
+  cursor: pointer;
 `
 const Payloads = styled.div`
 `
@@ -32,18 +36,30 @@ const PayloadContainer = styled.div`
 `
 
 export default function LaunchCard({ launchInfo: {
+  flight_number,
   mission_name,
   launch_date_utc,
   rocket: { second_stage  }
 }}) {
+  const history = useHistory()
+  const { location } = history
+
+  const navigateToDetailModal = (launchId) => {
+    const previousPath = location.pathname.replace('/launches', '')
+    history.push({
+      ...location,
+      pathname: `/launches/${launchId}`,
+      launchId
+    })
+  }
 
   return (
     <LaunchCardContainer>
-      <TitleContainer>
+      <TitleContainer onClick={() => navigateToDetailModal(flight_number)}>
         <p>{mission_name}</p>
         <p>{new Date(launch_date_utc).toLocaleDateString()}</p>
       </TitleContainer>
-      <Details>
+      <Details onClick={() => navigateToDetailModal(flight_number)} >
         { second_stage && (
           <Payloads>
             <h3>Payloads</h3>

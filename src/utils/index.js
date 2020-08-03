@@ -1,0 +1,3 @@
+export {
+  getIdParam
+} from './getIdParam'

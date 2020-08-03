@@ -31,6 +31,23 @@ const GlobalStyle = createGlobalStyle`
       height:100%;
     }
   }
+
+  #modal {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+#modal:empty {
+    display: none;
+  }
 `
 
 ReactDOM.render(
