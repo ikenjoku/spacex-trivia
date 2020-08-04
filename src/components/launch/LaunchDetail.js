@@ -32,7 +32,6 @@ const LaunchInfo = styled.div`
 `
 
 const Button = styled.button`
-  font-family: monospace;
   padding: 5px 15px;
   border-radius: 5px;
   outline: none;
@@ -92,6 +91,7 @@ export default function LaunchDetail({ launchId, closeModal }) {
                   ) }
                 </Media>
                 <Details>{details}</Details>
+                <form action="" method="post"></form>
               </Container>
               <Button onClick={closeModal}>Close</Button>
             </>

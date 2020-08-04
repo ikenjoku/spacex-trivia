@@ -1,9 +1,9 @@
 import React, { useState, useEffect, lazy } from 'react'
 import styled from 'styled-components'
 import { useRouteMatch, useHistory } from 'react-router-dom'
-import LaunchCard  from './LaunchCard'
 import LaunchDetail from './LaunchDetail'
 import RocketOrbitFilter from './RocketOrbitFilter'
+import PaginatedLaunches from './PaginatedLaunches'
 import { getIdParam } from '../../utils'
 const Modal = lazy(() => import('../common/Modal'))
 
@@ -72,12 +72,12 @@ export default function LaunchList({ launchList }) {
 
   useEffect(() => {
     const result = filterLaunches(launchList)
-    setShowingLaunches((state) => [...result])
+    setShowingLaunches(() => [...result])
   }, [filterString])
 
   const handleRockerFilter = (selectedValue) => {
     const result = launchesByOrbits(launchList, selectedValue)
-    setShowingLaunches((state) => [...result])
+    setShowingLaunches(() => [...result])
   }
 
   return (
@@ -94,13 +94,7 @@ export default function LaunchList({ launchList }) {
         handleRockerFilter={handleRockerFilter}
       />
       </Filters>
-      {showingLaunches && showingLaunches.map(
-        (launchInfo, index) =>
-          <LaunchCard
-            key={index}
-            launchInfo={launchInfo}
-          />
-      )}
+      <PaginatedLaunches data={showingLaunches} />
       { showDetailModal &&
         <Modal>
             <LaunchDetail

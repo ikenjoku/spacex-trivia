@@ -55,9 +55,9 @@ const Icon = styled.span`
 `
 
 const icons = {
-  reddit: <i class="fab fa-reddit-square"></i>,
-  wikipedia: <i class="fab fa-wikipedia-w"></i>,
-  article: <i class="far fa-newspaper"></i>
+  reddit: <i className="fab fa-reddit-square"></i>,
+  wikipedia: <i className="fab fa-wikipedia-w"></i>,
+  article: <i className="far fa-newspaper"></i>
 }
 
 export default function HistoryCard({ historyInfo: {
