@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, lazy } from 'react'
 import styled from 'styled-components'
 import { useRouteMatch, useHistory } from 'react-router-dom'
 import LaunchCard  from './LaunchCard'
 import LaunchDetail from './LaunchDetail'
 import RocketOrbitFilter from './RocketOrbitFilter'
-import { Modal } from '../common'
 import { getIdParam } from '../../utils'
+const Modal = lazy(() => import('../common/Modal'))
 
 const Filters = styled.div`
   @media (min-width: 500px) {

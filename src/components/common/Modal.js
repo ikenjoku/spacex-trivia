@@ -16,7 +16,7 @@ const ModalContainer = styled.div`
 
 const modalRoot = document.getElementById("modal")
 
-export const Modal = ({ children }) => {
+const Modal = ({ children }) => {
   const elRef = useRef(null)
   if (!elRef.current) {
     elRef.current = document.createElement("div")
@@ -32,3 +32,5 @@ export const Modal = ({ children }) => {
       {children}
     </ModalContainer>, elRef.current)
 }
+
+export default Modal
