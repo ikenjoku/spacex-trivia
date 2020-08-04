@@ -3,15 +3,18 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { routes } from './routes'
 
-
+const Icon = styled.span`
+  font-size: 24px;
+  color: #587b58;
+`
 
 const Sidebar = () => {
   const appRoutes = routes.map(({ path, name, icon }) => (
     <li key={path}>
       <Link to={path}>
-        <span aria-hidden="true" role="img">
+        <Icon>
           {icon}
-        </span>
+        </Icon>
         {name}
       </Link>
     </li>

@@ -17,47 +17,54 @@ const TitleContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   }
-
+  margin-bottom: 2em;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+  color: #405a40;
   p {
     padding-bottom: .5em;
   }
 `
 
 const Details = styled.div`
+  margin-bottom: 2em;
 `
 
 const Links = styled.div`
   display: flex;
   justify-content: flex-end;
-
+  align-items: center;
   & > p {
     margin-right: .5em;
   }
 `
-const icons = {
-  reddit: 'reddit',
-  wikipedia: 'wikipedia',
-  article: 'article'
-}
 
 const LinksContainer = styled.div`
   display: flex;
   justify-content: space-between;
-
   & > a {
     margin-right: .5em;
     text-decoration: none;
   }
 `
 
+const Icon = styled.span`
+  font-size: 24px;
+  color: #587b58;
+`
+
+const icons = {
+  reddit: <i class="fab fa-reddit-square"></i>,
+  wikipedia: <i class="fab fa-wikipedia-w"></i>,
+  article: <i class="far fa-newspaper"></i>
+}
+
 export default function HistoryCard({ historyInfo: {
-  id,
   title,
   links,
   details,
-  flight_number,
-  event_date_utc,
-  event_date_unix
+  event_date_utc
 }}) {
   let iconLinks = []
   for (let link in links) {
@@ -69,13 +76,21 @@ export default function HistoryCard({ historyInfo: {
     <HistoryCardContainer>
       <TitleContainer>
         <p>{title}</p>
-        <p>{new Date(event_date_unix).toLocaleDateString()}</p>
+        <p>{new Date(event_date_utc).toLocaleDateString()}</p>
       </TitleContainer>
       <Details>{details}</Details>
       <Links>
         <p>See More:</p>
         <LinksContainer>
-          {iconLinks.map(link => <Link key={link.url} to={{ pathname: link.url }} target="_blank">{link.name}</Link>)}
+          {iconLinks.map(link =>
+            <Link
+              key={link.url}
+              to={{ pathname: link.url }}
+              target="_blank">
+                <Icon>
+                  {icons[link.name]}
+                </Icon>
+            </Link>)}
         </LinksContainer>
       </Links>
     </HistoryCardContainer>

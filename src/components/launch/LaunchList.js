@@ -14,8 +14,8 @@ const Filters = styled.div`
     align-items: center;
   }
 
-  padding-right: .5em;
-  padding-left: .5em;
+  padding-right: 1em;
+  padding-left: 1em;
   max-width: 800px;
   margin: 1em auto 1em;
 `

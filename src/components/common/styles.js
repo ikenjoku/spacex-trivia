@@ -7,7 +7,7 @@ export const LoaderContainer = styled.div`
 export const Circle = styled.div`
   animation: circles-to-diamond 1200ms linear infinite;
   background: transparent;
-  border: 3px solid blueviolet;
+  border: 3px solid #405a40;
   border-radius: 10%;
   height: 35px;
   margin-left: 39.375px;

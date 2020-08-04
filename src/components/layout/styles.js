@@ -29,6 +29,9 @@ export const Main = styled.main`
 
 // Header
 export const HeaderBar = styled.header`
+  @media (max-width: 500px) {
+    justify-content: center;
+  }
   width: 100%;
   padding: 0.5em 1em;
   display: flex;
@@ -45,8 +48,4 @@ export const LogoText = styled.h1`
   padding: 0;
   display: inline;
   cursor: pointer;
-`
-
-export const ExtraActions = styled.div`
-  margin-left: auto;
 `

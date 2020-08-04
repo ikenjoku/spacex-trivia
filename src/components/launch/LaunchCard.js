@@ -19,7 +19,11 @@ const TitleContainer = styled.div`
   }
 
   cursor: pointer;
-
+  margin-bottom: 2em;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+  color: #405a40;
   p {
     padding-bottom: .5em;
   }
