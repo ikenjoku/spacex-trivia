@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { routes } from './routes'
 
@@ -11,12 +11,12 @@ const Icon = styled.span`
 const Sidebar = () => {
   const appRoutes = routes.map(({ path, name, icon }) => (
     <li key={path}>
-      <Link to={path}>
+      <NavLink activeClassName='active-link' to={path}>
         <Icon>
           {icon}
         </Icon>
         {name}
-      </Link>
+      </NavLink>
     </li>
   ))
 
@@ -61,6 +61,14 @@ const NavList = styled.ul`
       padding-right: 0.5em;
       font-size: 1.5em;
     }
+
+  }
+
+  .active-link,
+  .active-link:focus,
+  .active-link:active {
+    border-bottom: #587b58 4px solid;
+    padding-bottom: 5px;
   }
 
   a:visited {
@@ -69,7 +77,7 @@ const NavList = styled.ul`
 
   a:hover,
   a:focus {
-    color: #0077cc;
+    color: #333;
   }
 `
 

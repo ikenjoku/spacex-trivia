@@ -9,6 +9,10 @@ const LaunchCardContainer = styled.div`
   margin-bottom: 2em;
   padding-bottom: 2em;
   border-bottom: 3px solid #f5f4f0;
+
+  & :hover {
+    background-color: #f5f4f0;
+  }
 `
 
 const TitleContainer = styled.div`
