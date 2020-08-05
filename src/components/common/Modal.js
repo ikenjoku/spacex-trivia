@@ -9,7 +9,7 @@ const ModalContainer = styled.div`
   background-color: white;
   width: 600px;
   height: 80vh;
-  padding: 1em;
+  padding: 1em 1em 1.5em 1em;
   border-radius: 5px;
   text-align: center;
 `
