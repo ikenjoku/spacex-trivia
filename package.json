@@ -5,8 +5,8 @@
   "main": "./src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "start:prod": "webpack-dev-server --config ./webpack.config.js --mode production",
+    "start:dev": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode production",
     "build": "webpack --progress --colors"
   },
   "repository": {
@@ -45,7 +45,9 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
-    "webpack-hot-middleware": "^2.25.0"
+    "webpack-hot-middleware": "^2.25.0",
+    "file-loader": "^6.0.0",
+    "sass-loader": "^9.0.2"
   },
   "dependencies": {
     "axios": "^0.19.2",
