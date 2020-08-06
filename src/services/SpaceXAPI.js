@@ -15,6 +15,9 @@ class SpaceXAPI {
   static getLaunch(launchId) {
     return axios.get(`${baseUrl}/launches/${launchId}`)
   }
+  static postLaunchData() {
+    return 'https://not-a-real-api.com/some-imaginary-black-hole'
+  }
 }
 
 export default SpaceXAPI

@@ -1,21 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchRockets } from '../../redux/actionCreators/rocketActions'
-import styled from 'styled-components'
-
-const OrbitFilter = styled.select`
-  @media (max-width: 500px) {
-    margin-top: 1.5em;
-  }
-  padding: .65em;
-  outline: auto;
-  border-radius: 5px;
-  width: 250px;
-  font-style: italic;
-  font-weight: 600;
-  font-family: monospace;
-  font-size: 14px;
-`
+import { OrbitFilter } from './styles'
 
 export default function RocketOrbitFilter({ handleRockerFilter }) {
   const rocketsState = useSelector(state => state.rockets)

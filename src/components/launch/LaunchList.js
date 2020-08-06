@@ -1,35 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import React, { useState, useEffect, lazy } from 'react'
 import { useRouteMatch, useHistory } from 'react-router-dom'
-import LaunchCard  from './LaunchCard'
-import LaunchDetail from './LaunchDetail'
-import RocketOrbitFilter from './RocketOrbitFilter'
-import { Modal } from '../common'
 import { getIdParam } from '../../utils'
-
-const Filters = styled.div`
-  @media (min-width: 500px) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  padding-right: .5em;
-  padding-left: .5em;
-  max-width: 800px;
-  margin: 1em auto 1em;
-`
-
-const FilterInput = styled.input`
-  padding: .65em;
-  outline: auto;
-  border-radius: 5px;
-  min-width: 250px;
-  font-style: italic;
-  font-weight: 600;
-  font-family: monospace;
-  font-size: 14px;
-`
+import LaunchDetail from './LaunchDetail'
+import { Filters, FilterInput } from './styles'
+import RocketOrbitFilter from './RocketOrbitFilter'
+import PaginatedLaunches from './PaginatedLaunches'
+const Modal = lazy(() => import('../common/Modal'))
 
 export default function LaunchList({ launchList }) {
   const [filterString, setFilterString] = useState('')
@@ -72,12 +48,12 @@ export default function LaunchList({ launchList }) {
 
   useEffect(() => {
     const result = filterLaunches(launchList)
-    setShowingLaunches((state) => [...result])
+    setShowingLaunches(() => [...result])
   }, [filterString])
 
   const handleRockerFilter = (selectedValue) => {
     const result = launchesByOrbits(launchList, selectedValue)
-    setShowingLaunches((state) => [...result])
+    setShowingLaunches(() => [...result])
   }
 
   return (
@@ -94,13 +70,7 @@ export default function LaunchList({ launchList }) {
         handleRockerFilter={handleRockerFilter}
       />
       </Filters>
-      {showingLaunches && showingLaunches.map(
-        (launchInfo, index) =>
-          <LaunchCard
-            key={index}
-            launchInfo={launchInfo}
-          />
-      )}
+      <PaginatedLaunches data={showingLaunches} />
       { showDetailModal &&
         <Modal>
             <LaunchDetail
