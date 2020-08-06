@@ -19,6 +19,7 @@ export default function HistoryCard({ historyInfo: {
   title,
   links,
   details,
+  flight_number,
   event_date_utc
 }}) {
   let iconLinks = []
@@ -30,7 +31,7 @@ export default function HistoryCard({ historyInfo: {
   return (
     <HistoryCardContainer>
       <TitleContainer>
-        <p>{title}</p>
+        <p>{ flight_number ? `Flight ${flight_number}: ` : ''}{title}</p>
         <p>{new Date(event_date_utc).toLocaleDateString()}</p>
       </TitleContainer>
       <Details>{details}</Details>
