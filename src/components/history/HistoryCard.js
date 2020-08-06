@@ -1,62 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-
-const HistoryCardContainer = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1em;
-  margin-bottom: 2em;
-  padding-bottom: 2em;
-  border-bottom: 3px solid #f5f4f0;
-
-  & :hover {
-    background-color: #f5f4f0;
-  }
-`
-
-const TitleContainer = styled.div`
-  @media (min-width: 500px) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  }
-  margin-bottom: 2em;
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: 500;
-  font-size: 1.5em;
-  color: #405a40;
-  p {
-    padding-bottom: .5em;
-  }
-`
-
-const Details = styled.div`
-  margin-bottom: 2em;
-`
-
-const Links = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  & > p {
-    margin-right: .5em;
-  }
-`
-
-const LinksContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  & > a {
-    margin-right: .5em;
-    text-decoration: none;
-  }
-`
-
-const Icon = styled.span`
-  font-size: 24px;
-  color: #587b58;
-`
+import {
+  HistoryCardContainer,
+  TitleContainer,
+  LinksContainer,
+  Details,
+  Links,
+  Icon
+} from './styles'
 
 const icons = {
   reddit: <i className="fab fa-reddit-square"></i>,

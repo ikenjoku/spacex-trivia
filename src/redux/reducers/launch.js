@@ -11,7 +11,7 @@ const initialState = {
   launch: {},
   loading: false,
   launchError: null,
-  sendingData: false,
+  sendingData: false
 }
 
 const launch = (state=initialState, action) => {

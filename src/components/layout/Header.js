@@ -7,7 +7,9 @@ const Header = () => {
 
   return (
     <HeaderBar>
-      <LogoText onClick={() => history.push('/')}>SpaceX-Trivia</LogoText>
+      <LogoText
+        onClick={() => history.push('/')}
+      >SpaceX-Trivia</LogoText>
     </HeaderBar>
   )
 }

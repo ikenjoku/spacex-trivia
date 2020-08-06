@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-function usePagination(data, limit) {
+export function usePagination(data, limit) {
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = Math.ceil(data.length / limit)
 
@@ -20,7 +20,7 @@ function usePagination(data, limit) {
 
   function goToPage(page) {
     const pageNumber = Math.max(1, page)
-    setCurrentPage((currentPage) => Math.min(pageNumber, totalPages))
+    setCurrentPage(() => Math.min(pageNumber, totalPages))
   }
 
   return {
@@ -32,5 +32,3 @@ function usePagination(data, limit) {
     totalPages
   }
 }
-
-export default usePagination;

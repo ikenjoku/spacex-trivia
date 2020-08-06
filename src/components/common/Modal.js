@@ -6,7 +6,7 @@ const ModalContainer = styled.div`
   @media (max-width: 600px) {
     width: 100%;
   }
-  background-color: white;
+  background-color: ${({ theme }) => theme.body};
   width: 600px;
   height: 80vh;
   padding: 1em 1em 1.5em 1em;

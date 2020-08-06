@@ -1,16 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styled from 'styled-components'
 import { fetchHistory } from '../../redux/actionCreators/historyActions'
 import ListHistory from './ListHistory'
 import { AppLoader } from '../common'
-
-const PageTitle = styled.h1`
-  padding-right: .5em;
-  padding-left: .5em;
-  max-width: 800px;
-  margin: 1em auto 1em;
-`
+import { PageTitle } from './styles'
 
 const History = () => {
   const historyState = useSelector(state => state.history)

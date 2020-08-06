@@ -1,35 +1,11 @@
 import React, { useState, useEffect, lazy } from 'react'
-import styled from 'styled-components'
 import { useRouteMatch, useHistory } from 'react-router-dom'
+import { getIdParam } from '../../utils'
 import LaunchDetail from './LaunchDetail'
+import { Filters, FilterInput } from './styles'
 import RocketOrbitFilter from './RocketOrbitFilter'
 import PaginatedLaunches from './PaginatedLaunches'
-import { getIdParam } from '../../utils'
 const Modal = lazy(() => import('../common/Modal'))
-
-const Filters = styled.div`
-  @media (min-width: 500px) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  padding-right: 1em;
-  padding-left: 1em;
-  max-width: 800px;
-  margin: 1em auto 1em;
-`
-
-const FilterInput = styled.input`
-  padding: .65em;
-  outline: auto;
-  border-radius: 5px;
-  min-width: 250px;
-  font-style: italic;
-  font-weight: 600;
-  font-family: monospace;
-  font-size: 14px;
-`
 
 export default function LaunchList({ launchList }) {
   const [filterString, setFilterString] = useState('')

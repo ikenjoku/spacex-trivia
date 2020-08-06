@@ -1,89 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styled from 'styled-components'
 import { fetchLaunch, postLaunchData } from '../../redux/actionCreators/launchActions'
 import { AppLoader } from '../common'
-
-const PageTitle = styled.div`
-  margin: 1em auto 1em;
-  display: flex;
-  justify-content: space-between;
-
-  p {
-    font-size: 1.5em;
-  }
-`
-const Media = styled.div`
-  margin: 2em auto 2em;
-`
-
-const Details = styled.div`
-  margin: 1em auto 1em;
-`
-
-const Container = styled.div`
-  height: 100%;
-  overflow-y: scroll;
-  margin-bottom: 1em;
-`
-
-const LaunchInfo = styled.div`
-  width: 100%;
-  height: 95%;
-`
-
-const Button = styled.button`
-  padding: 5px 15px;
-  border-radius: 5px;
-  outline: none;
-  font-weight: 600;
-  background-color: #595a59;
-  color: white;
-`
-
-const YoutubeIframe = styled.iframe`
-  @media (max-width: 500px) {
-    width: 100%;
-  }
-  width: 500px;
-  height: 400px;
-  margin-right: auto;
-  margin-left: auto;
-`
-
-const SendDataForm = styled.form`
-  /* display: fl */
-`
-const SendDataOptions = styled.select`
-  padding: .65em;
-  outline: auto;
-  border-radius: 5px;
-  width: 250px;
-  font-style: italic;
-  font-weight: 600;
-  font-family: monospace;
-  font-size: 14px;
-`
-const SendButton = styled.button`
-  padding: .65em;
-  outline: auto;
-  border-radius: 5px;
-  font-weight: 600;
-  font-family: monospace;
-  font-size: 14px;
-`
-
-const FormContainer = styled.div`
-  margin-top: 4em;
-`
-
-const FormTitle = styled.div`
-  font-family: 'Fira Sans', sans-serif;
-  margin-bottom: 1em;
-  border-top: 3px solid #f5f4f0;
-  padding-top: 1em;
-`
-
+import {
+  Media,
+  Button,
+  Details,
+  PageTitle,
+  Container,
+  FormTitle,
+  SendButton,
+  LaunchInfo,
+  YoutubeIframe,
+  FormContainer,
+  SendDataOptions
+} from './styles'
 
 export default function LaunchDetail({ launchId, closeModal }) {
   const launchDetails = useSelector(state => state.launch)
@@ -97,14 +28,10 @@ export default function LaunchDetail({ launchId, closeModal }) {
       dispatch(fetchLaunch(launchId))
   }, [])
 
-    let hasYoutubeId
-    let hasImages
-    let hasLargeLogo
+  let hasYoutubeId
 
   if (launch.flight_number) {
     hasYoutubeId = links.youtube_id
-    hasImages = links.flickr_images.length
-    hasLargeLogo = links.mission_patch
   }
 
   useEffect(() => {
@@ -120,8 +47,8 @@ export default function LaunchDetail({ launchId, closeModal }) {
   const sendData = (e) => {
     e.preventDefault()
     const data = launch[selectedField]
-    console.log('sending data to black hole', data)
-    dispatch(postLaunchData(data))
+    console.log('sending data to black hole', {data})
+    dispatch(postLaunchData({data}))
   }
 
   return (
@@ -132,7 +59,7 @@ export default function LaunchDetail({ launchId, closeModal }) {
             <>
               <Container>
                 <PageTitle>
-                  <p>Launch {flight_number}:{ mission_name }</p>
+                  <p>Launch {flight_number}: { mission_name }</p>
                   <p>{launch_year}</p>
                 </PageTitle>
                 <Media>

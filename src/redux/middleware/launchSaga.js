@@ -7,16 +7,13 @@ import {
 import SpaceXAPI from '../../services/SpaceXAPI'
 import apiErrorHandler from '../../services/apiErrorHandler'
 import {
-  fetchLaunches,
   fetchLaunchesSuccess,
   fetchLaunchesFailure
 } from '../actionCreators/launchesActions'
 
 import {
-  fetchLaunch,
   fetchLaunchSuccess,
   fetchLaunchFailure,
-  postLaunchData,
   postLaunchDataSuccess,
   postLaunchDataFailure
 } from '../actionCreators/launchActions'

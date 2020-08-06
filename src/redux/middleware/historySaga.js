@@ -5,7 +5,6 @@ import {
 import SpaceXAPI from '../../services/SpaceXAPI'
 import apiErrorHandler from '../../services/apiErrorHandler'
 import {
-  fetchHistory,
   fetchHistorySuccess,
   fetchHistoryFailure
 } from '../actionCreators/historyActions'
@@ -13,15 +12,15 @@ import {
 export function* fetchHistorySaga() {
   let response
   try {
-    response = yield call(SpaceXAPI.getHistory);
-    yield put(fetchHistorySuccess(response.data));
+    response = yield call(SpaceXAPI.getHistory)
+    yield put(fetchHistorySuccess(response.data))
   }
   catch(error) {
-    const errorMessage = apiErrorHandler(error);
-    yield put(fetchHistoryFailure(errorMessage));
+    const errorMessage = apiErrorHandler(error)
+    yield put(fetchHistoryFailure(errorMessage))
   }
 }
 
 export function* watchFetchHistory() {
-  yield takeLatest(FETCH_HISTORY, fetchHistorySaga);
+  yield takeLatest(FETCH_HISTORY, fetchHistorySaga)
 }
