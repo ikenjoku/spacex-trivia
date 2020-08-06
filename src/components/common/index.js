@@ -1,7 +1,2 @@
-export {
-  AppLoader
-} from './Loader'
-
-export {
-  Modal
-} from './Modal'
+export { AppLoader } from './Loader'
+export { default as Modal } from './Modal'

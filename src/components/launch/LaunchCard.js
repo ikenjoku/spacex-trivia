@@ -1,39 +1,12 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import styled from 'styled-components'
-
-const LaunchCardContainer = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1em;
-  margin-bottom: 2em;
-  padding-bottom: 2em;
-  border-bottom: 3px solid #f5f4f0;
-`
-
-const TitleContainer = styled.div`
-  @media (min-width: 500px) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  }
-
-  cursor: pointer;
-
-  p {
-    padding-bottom: .5em;
-  }
-`
-
-const Details = styled.div`
-  cursor: pointer;
-`
-const Payloads = styled.div`
-`
-
-const PayloadContainer = styled.div`
-  margin-bottom: 1em;
-`
+import {
+  Payloads,
+  TitleContainer,
+  PayloadContainer,
+  LaunchCardDetails,
+  LaunchCardContainer
+} from './styles'
 
 export default function LaunchCard({ launchInfo: {
   flight_number,
@@ -59,7 +32,7 @@ export default function LaunchCard({ launchInfo: {
         <p>{mission_name}</p>
         <p>{new Date(launch_date_utc).toLocaleDateString()}</p>
       </TitleContainer>
-      <Details onClick={() => navigateToDetailModal(flight_number)} >
+      <LaunchCardDetails onClick={() => navigateToDetailModal(flight_number)} >
         { second_stage && (
           <Payloads>
             <h3>Payloads</h3>
@@ -73,7 +46,7 @@ export default function LaunchCard({ launchInfo: {
               </PayloadContainer>))}
           </Payloads>
         )}
-      </Details>
+      </LaunchCardDetails>
     </LaunchCardContainer>
   )
 }

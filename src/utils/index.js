@@ -1,3 +1,2 @@
-export {
-  getIdParam
-} from './getIdParam'
+export { getIdParam } from './getIdParam'
+export { LIGHT, DARK } from './constants'

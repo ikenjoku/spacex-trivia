@@ -7,7 +7,7 @@ export const LoaderContainer = styled.div`
 export const Circle = styled.div`
   animation: circles-to-diamond 1200ms linear infinite;
   background: transparent;
-  border: 3px solid blueviolet;
+  border: 3px solid ${({ theme }) => theme.highlight };
   border-radius: 10%;
   height: 35px;
   margin-left: 39.375px;
@@ -56,9 +56,4 @@ export const Loader = styled.div`
   transition: 0.5s;
   width: 100%;
   z-index: 900;
-
-  background-color: 'white';
-  opacity:  1;
-  pointer-events:'all';
-  visibility: 'visible';
 `
